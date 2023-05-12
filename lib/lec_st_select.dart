@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_lms_try/std_login.dart';
 import 'lec_login.dart';
-
+/*
 void main() {
   runApp(MaterialApp(home: lec_st_select()));
 }
@@ -80,6 +80,122 @@ class _lec_st_selectState extends State<lec_st_select> {
           ],
         ),
         backgroundColor: Colors.grey[200],
+      ),
+    );
+  }
+}
+*/
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: lec_st_select(),
+  ));
+}
+
+class lec_st_select extends StatefulWidget {
+  @override
+  State<lec_st_select> createState() => _lec_st_selectState();
+}
+
+class _lec_st_selectState extends State<lec_st_select> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        //AppBar
+        appBar: AppBar(
+          backgroundColor: Color(0xFF19589D),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          )),
+          title: const Text('Choose Your Role'),
+          centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 24),
+            ),
+          ],
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              //creating box 1
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => std_login()),
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFBFD8FF),
+                    borderRadius: BorderRadius.circular(30.0),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 15,
+                        offset: const Offset(0, 4),
+                        color: Color(0xFFa9a9a9),
+                      ),
+                    ],
+                  ),
+                  height: 280.0,
+                  width: 280.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/img1.png',
+                        height: 270.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 50.0),
+
+              //creating box 2
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => lect_login()));
+                },
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFBFD8FF),
+                    borderRadius: BorderRadius.circular(30.0),
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 15,
+                        offset: const Offset(0, 4),
+                        color: Color(0xFFa9a9a9),
+                      ),
+                    ],
+                  ),
+                  height: 280.0,
+                  width: 280.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/img2.png',
+                        height: 270.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
