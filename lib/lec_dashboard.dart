@@ -9,6 +9,7 @@ import 'package:the_lms_try/std_dashboard.dart';
 import 'package:the_lms_try/student_enroll.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:the_lms_try/timetable.dart';
 
 import 'add_quiz.dart';
 import 'annoucements.dart';
@@ -450,6 +451,51 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                         SizedBox(height: 10),
                                         Text(
                                           'Student Details',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        ///
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  margin: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: Colors.blueGrey,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => TimeTable()),
+                                      );
+                                    },
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.schedule_rounded,
+                                          size: 50,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          'Time Table update',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 18,
