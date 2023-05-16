@@ -30,12 +30,31 @@ class _lect_loginState extends State<lect_login> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor: Colors.blue.shade100,
+        appBar: AppBar(
+          backgroundColor: Color(0xFF19589D),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          )),
+          title: const Text('Lecturer Login'),
+          centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 24),
+            ),
+          ],
+        ),
         body: SingleChildScrollView(
           reverse: true,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
                     height: 50.0,
@@ -51,7 +70,7 @@ class _lect_loginState extends State<lect_login> {
                         margin: EdgeInsets.only(left: 50),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.purple.shade200,
+                            primary: Color(0xFF19589D),
                           ),
                           onPressed: () {
                             Navigator.pushNamed(context, lect_login.id);
@@ -61,7 +80,7 @@ class _lect_loginState extends State<lect_login> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -73,7 +92,7 @@ class _lect_loginState extends State<lect_login> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.purple.shade200,
+                                primary: Color(0xFF19589D),
                               ),
                               onPressed: () {
                                 Navigator.push(
@@ -87,7 +106,7 @@ class _lect_loginState extends State<lect_login> {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -104,7 +123,7 @@ class _lect_loginState extends State<lect_login> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF3F3D56),
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -115,7 +134,7 @@ class _lect_loginState extends State<lect_login> {
                       'Sign in to your account',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Color(0xFF3F3D56),
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -173,7 +192,7 @@ class _lect_loginState extends State<lect_login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                     decoration: BoxDecoration(
-                      color: Colors.purple.shade100,
+                      color: Colors.blue.shade100,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Row(
@@ -199,7 +218,7 @@ class _lect_loginState extends State<lect_login> {
                           child: Text(
                             'Sign Up',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Color(0xFF19589D),
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                               //decoration: TextDecoration.underline,
@@ -249,7 +268,7 @@ class _lect_loginState extends State<lect_login> {
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.purpleAccent,
+                          backgroundColor: Color(0xFF19589D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),

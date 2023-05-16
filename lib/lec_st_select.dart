@@ -104,6 +104,7 @@ class _lec_st_selectState extends State<lec_st_select> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.blue.shade50,
         //AppBar
         appBar: AppBar(
           backgroundColor: Color(0xFF19589D),

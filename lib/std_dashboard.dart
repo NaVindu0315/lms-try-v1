@@ -4,13 +4,16 @@ import 'package:the_lms_try/annoucements.dart';
 import 'package:the_lms_try/quizpage.dart';
 import 'package:the_lms_try/slides.dart';
 import 'package:the_lms_try/st_userdetails.dart';
+import 'package:the_lms_try/std_annoucement.dart';
 import 'package:the_lms_try/std_dashboard.dart';
+import 'package:the_lms_try/std_lecmaterial.dart';
 import 'package:the_lms_try/std_marksheet.dart';
 import 'package:the_lms_try/student_enroll.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'add_quiz.dart';
+import 'groupchat.dart';
 import 'lec_st_select.dart';
 
 late User loggedinuser;
@@ -56,27 +59,26 @@ class _st_dashboardState extends State<st_dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new_outlined,
-            color: Colors.black,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new_outlined,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => lec_st_select()),
+              );
+            },
           ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => lec_st_select()),
-            );
-          },
-        ),
-        title: Text(
-          'Student Dashboard',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+          title: Text(
+            'Student Dashboard',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        backgroundColor: Color(0xFFDBD6E5),
-      ),
+          backgroundColor: Color(0xFF19589D)),
       body: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
               .collection('students')
@@ -88,50 +90,52 @@ class _st_dashboardState extends State<st_dashboard> {
               var data = snapshot.data;
               return Column(
                 children: <Widget>[
-                  Container(
-                    height: 100, // Set the desired height
-                    decoration: BoxDecoration(
-                      color: Color(0xFFA888EB),
-                      borderRadius:
-                          BorderRadius.circular(50), // Set the desired color
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Expanded(
-                          child: Text(
-                            'Welcome, ${data!['username']}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                  SingleChildScrollView(
+                    child: Container(
+                      height: 100, // Set the desired height
+                      decoration: BoxDecoration(
+                        color: Color(0xFF19589D),
+                        borderRadius:
+                            BorderRadius.circular(50), // Set the desired color
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Welcome, ${data!['username']}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 170.0,
-                        ),
-                        Expanded(
-                          child: CircleAvatar(
-                            backgroundColor: Colors.purple,
-                            minRadius: 70.5,
+                          SizedBox(
+                            width: 170.0,
+                          ),
+                          Expanded(
                             child: CircleAvatar(
-                                radius: 70,
-                                backgroundImage:
-                                    //AssetImage('images/g.png'),
-                                    NetworkImage('${data!['url']}')),
-                          ),
-                          /*
-                          CircleAvatar(
-                            radius: 50.0,
-                            child: Image(
-                              image: NetworkImage('${data!['url']}'),
+                              backgroundColor: Colors.purple,
+                              minRadius: 70.5,
+                              child: CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage:
+                                      //AssetImage('images/g.png'),
+                                      NetworkImage('${data!['url']}')),
                             ),
-                          ),*/
-                        ),
-                      ],
+                            /*
+                            CircleAvatar(
+                              radius: 50.0,
+                              child: Image(
+                                image: NetworkImage('${data!['url']}'),
+                              ),
+                            ),*/
+                          ),
+                        ],
+                      ),
                     ),
                   ),
 
@@ -272,7 +276,7 @@ class _st_dashboardState extends State<st_dashboard> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => slides()),
+                                            builder: (context) => std_slides()),
                                       );
                                     },
                                     child: Column(
@@ -316,7 +320,7 @@ class _st_dashboardState extends State<st_dashboard> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                announcements()),
+                                                std_announcement()),
                                       );
                                     },
                                     child: Column(
@@ -382,7 +386,7 @@ class _st_dashboardState extends State<st_dashboard> {
                             ],
                           ),
                         ),
-                        /* Expanded(
+                        Expanded(
                           child: Row(
                             children: [
                               Expanded(
@@ -393,19 +397,25 @@ class _st_dashboardState extends State<st_dashboard> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => groupchat()),
+                                      );
+                                    },
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Icon(
-                                          Icons.announcement,
+                                          Icons.chat,
                                           size: 50,
                                           color: Colors.white,
                                         ),
                                         SizedBox(height: 10),
                                         Text(
-                                          'Announcements',
+                                          'Contact',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 18,
@@ -437,13 +447,13 @@ class _st_dashboardState extends State<st_dashboard> {
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Icon(
-                                          Icons.quiz_outlined,
+                                          Icons.schedule_rounded,
                                           size: 50,
                                           color: Colors.white,
                                         ),
                                         SizedBox(height: 10),
                                         Text(
-                                          'Add Quiz',
+                                          'Time Table',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 18,
@@ -456,7 +466,7 @@ class _st_dashboardState extends State<st_dashboard> {
                               ),
                             ],
                           ),
-                        ),*/
+                        ),
                       ],
                     ),
                   )

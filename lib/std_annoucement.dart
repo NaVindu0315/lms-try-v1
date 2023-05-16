@@ -7,13 +7,13 @@ import 'constants.dart';
 
 late User loggedinuser;
 
-class announcements extends StatefulWidget {
+class std_announcement extends StatefulWidget {
   static String id = 'chat_screen';
   @override
-  _announcementsState createState() => _announcementsState();
+  _std_announcementState createState() => _std_announcementState();
 }
 
-class _announcementsState extends State<announcements> {
+class _std_announcementState extends State<std_announcement> {
   DateTime timestamp = DateTime.now();
 
   final messageTextController = TextEditingController();
@@ -220,7 +220,7 @@ class _announcementsState extends State<announcements> {
                 }),
             */
             ///angels code end
-            Container(
+            /*Container(
               decoration: kMessageContainerDecoration,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -252,7 +252,7 @@ class _announcementsState extends State<announcements> {
                   ),
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
       ),

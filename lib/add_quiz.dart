@@ -193,13 +193,13 @@ class _add_questionsState extends State<add_questions> {
             },
           ),
           title: Text(
-            'Quiz',
+            'Add Quiz',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color(0xFFDBD6E5),
+          backgroundColor: Color(0xFF19589D),
         ),
         body: SingleChildScrollView(
           reverse: true,
