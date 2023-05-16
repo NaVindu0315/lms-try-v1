@@ -139,7 +139,22 @@ class _lect_signState extends State<lect_sign> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.purple.shade100,
+        appBar: AppBar(
+          backgroundColor: Color(0xFF19589D),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          )),
+          title: const Text('Lecturer Sign Up'),
+          centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 24),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.blue.shade100,
         body: SingleChildScrollView(
           reverse: true,
           child: SafeArea(
@@ -156,7 +171,7 @@ class _lect_signState extends State<lect_sign> {
                         margin: EdgeInsets.only(left: 50),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.purple.shade200,
+                            primary: Color(0xFF19589D),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -170,7 +185,7 @@ class _lect_signState extends State<lect_sign> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -182,7 +197,7 @@ class _lect_signState extends State<lect_sign> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.purple.shade200,
+                                primary: Color(0xFF19589D),
                               ),
                               onPressed: () {
                                 Navigator.pushNamed(context, lect_sign.id);
@@ -192,7 +207,7 @@ class _lect_signState extends State<lect_sign> {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -214,7 +229,7 @@ class _lect_signState extends State<lect_sign> {
                       InkWell(
                         onTap: _pickImage,
                         child: CircleAvatar(
-                          backgroundColor: Colors.deepPurpleAccent,
+                          backgroundColor: Colors.blue.shade100,
                           radius: 50.0,
                           backgroundImage:
                               _image != null ? FileImage(_image!) : null,
@@ -222,7 +237,7 @@ class _lect_signState extends State<lect_sign> {
                             image: AssetImage('images/ad.png'),
                           ),*/
                               _image == null
-                                  ? Image.asset('images/ad.png')
+                                  ? Image.asset('assets/img2.png')
                                   : Image.file(_image!),
 
                           /*IconButton(
@@ -350,7 +365,7 @@ class _lect_signState extends State<lect_sign> {
                   ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.deepPurple)),
+                            Color(0xFF19589D))),
                     onPressed: () {
                       if (pw == pw2) {
                         createuser();

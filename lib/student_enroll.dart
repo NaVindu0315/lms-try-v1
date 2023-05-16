@@ -114,6 +114,29 @@ class _st_enrollState extends State<st_enroll> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.blue.shade100,
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new_outlined,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => lec_dashboard()),
+              );
+            },
+          ),
+          title: Text(
+            'Enroll new Student',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color(0xFF19589D),
+        ),
         body: SingleChildScrollView(
           reverse: true,
           child: SafeArea(
@@ -132,7 +155,7 @@ class _st_enrollState extends State<st_enroll> {
                       InkWell(
                         onTap: _pickImage,
                         child: CircleAvatar(
-                          backgroundColor: Colors.deepPurpleAccent,
+                          backgroundColor: Colors.blue.shade100,
                           radius: 50.0,
                           backgroundImage:
                               _image != null ? FileImage(_image!) : null,
@@ -140,7 +163,7 @@ class _st_enrollState extends State<st_enroll> {
                             image: AssetImage('images/ad.png'),
                           ),*/
                               _image == null
-                                  ? Image.asset('images/ad.png')
+                                  ? Image.asset('assets/img1.png')
                                   : Image.file(_image!),
 
                           /*IconButton(
@@ -285,7 +308,7 @@ class _st_enrollState extends State<st_enroll> {
                   ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.deepPurple)),
+                            Color(0xFF19589D))),
                     onPressed: () {
                       if (pw == pw2) {
                         createstudent();
@@ -296,7 +319,8 @@ class _st_enrollState extends State<st_enroll> {
                             TextButton(
                               child: Text("OK"),
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                MaterialPageRoute(
+                                    builder: (context) => lec_dashboard());
                               },
                             ),
                           ],
@@ -317,7 +341,11 @@ class _st_enrollState extends State<st_enroll> {
                             TextButton(
                               child: Text("OK"),
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => lec_dashboard()),
+                                );
                               },
                             ),
                           ],

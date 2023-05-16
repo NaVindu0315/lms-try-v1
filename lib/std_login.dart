@@ -31,7 +31,22 @@ class _std_loginState extends State<std_login> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.purple.shade100,
+        appBar: AppBar(
+          backgroundColor: Color(0xFF19589D),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          )),
+          title: const Text('Student Login'),
+          centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 24),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.blue.shade100,
         body: SingleChildScrollView(
           reverse: true,
           child: Column(
@@ -123,7 +138,7 @@ class _std_loginState extends State<std_login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
                     decoration: BoxDecoration(
-                      color: Colors.purple.shade100,
+                      color: Colors.blue.shade100,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Row(
@@ -199,7 +214,7 @@ class _std_loginState extends State<std_login> {
                           style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.purpleAccent,
+                          backgroundColor: Color(0xFF19589D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),

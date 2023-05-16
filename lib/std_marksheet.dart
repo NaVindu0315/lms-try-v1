@@ -244,11 +244,12 @@ class _marksheetState extends State<marksheet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.shade100,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_outlined,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.push(
@@ -260,11 +261,11 @@ class _marksheetState extends State<marksheet> {
         title: Text(
           'Marks',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Color(0xFFDBD6E5),
+        backgroundColor: Color(0xFF19589D),
       ),
       body: SafeArea(
         child: Column(

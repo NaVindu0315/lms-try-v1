@@ -7,13 +7,13 @@ import 'constants.dart';
 
 late User loggedinuser;
 
-class announcements extends StatefulWidget {
+class groupchat extends StatefulWidget {
   static String id = 'chat_screen';
   @override
-  _announcementsState createState() => _announcementsState();
+  _groupchatState createState() => _groupchatState();
 }
 
-class _announcementsState extends State<announcements> {
+class _groupchatState extends State<groupchat> {
   DateTime timestamp = DateTime.now();
 
   final messageTextController = TextEditingController();
@@ -74,7 +74,7 @@ class _announcementsState extends State<announcements> {
 
   void messagesstream() async {
     await for (var snapeshot
-        in _firestore.collection('messages').orderBy('timestamp').snapshots()) {
+        in _firestore.collection('chat').orderBy('timestamp').snapshots()) {
       for (var doc in snapeshot.docs) {
         var data = doc.data();
 
@@ -107,7 +107,7 @@ class _announcementsState extends State<announcements> {
               }),
         ],
         title: Text(
-          '    Annoucments',
+          'Connect',
           style: TextStyle(
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
@@ -124,7 +124,7 @@ class _announcementsState extends State<announcements> {
             ///this is workingg
             StreamBuilder<QuerySnapshot>(
               stream: _firestore
-                  .collection('messages')
+                  .collection('chat')
                   .orderBy('timestamp')
                   .snapshots(),
               builder: (context, snapshot) {
@@ -237,7 +237,7 @@ class _announcementsState extends State<announcements> {
                   ),
                   TextButton(
                     onPressed: () {
-                      _firestore.collection('messages').add({
+                      _firestore.collection('chat').add({
                         'text': messagetext,
                         'sender': loggedinuser.email,
                         'timestamp': FieldValue.serverTimestamp(),

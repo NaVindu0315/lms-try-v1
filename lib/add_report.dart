@@ -169,11 +169,11 @@ class _add_reportState extends State<add_report> {
           title: Text(
             'Add Report',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color(0xFFDBD6E5),
+          backgroundColor: Color(0xFF19589D),
         ),
         body: SingleChildScrollView(
           reverse: true,

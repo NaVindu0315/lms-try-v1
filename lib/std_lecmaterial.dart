@@ -23,13 +23,13 @@ import 'dart:io';
 
 late User loggedinuser;
 
-class slides extends StatefulWidget {
+class std_slides extends StatefulWidget {
   static String id = 'chat_screen';
   @override
-  _slidesState createState() => _slidesState();
+  _std_slidesState createState() => _std_slidesState();
 }
 
-class _slidesState extends State<slides> {
+class _std_slidesState extends State<std_slides> {
   final messageTextController = TextEditingController();
 
   late var sentuser;
@@ -218,7 +218,7 @@ class _slidesState extends State<slides> {
 
             ///chat gpt code end
 
-            Container(
+            /* Container(
               decoration: kMessageContainerDecoration,
               //child:
 
@@ -355,7 +355,7 @@ class _slidesState extends State<slides> {
                   ),
                 ],
               ),*/
-            ),
+            ),*/
           ],
         ),
       ),

@@ -148,7 +148,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
       title: 'My Flutter App',
       debugShowCheckedModeBanner: false, // Remove debug banner
       home: Scaffold(
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor: Colors.blue.shade100,
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new_outlined),
@@ -158,17 +158,16 @@ class _lec_userdetailsState extends State<lec_userdetails> {
           ),
           toolbarHeight: 70,
           centerTitle: true,
-          backgroundColor: Color(0xFFA888EB),
+          backgroundColor: Color(0xFF19589D),
           // The title text which will be shown on the action bar
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   client,
                   style: TextStyle(
-                      fontSize: 31,
+                      fontSize: 21,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
@@ -216,11 +215,13 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                   NetworkImage('${data!['url']}')),
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -238,7 +239,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                               child: Text(
                                 'Username :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -253,7 +254,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                 //Text('Username: ${data!['username']}'),
                                 '${data!['username']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -263,13 +264,15 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       /////////
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -287,7 +290,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                               child: Text(
                                 'email :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -300,7 +303,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                 //////email variable
                                 client,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -310,13 +313,15 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       ///mobile
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -334,7 +339,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                               child: Text(
                                 'Mobile :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -347,7 +352,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                 //////mobile variable
                                 '${data!['mobile']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -357,14 +362,16 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       /////////
                       ///address
                       Container(
                         padding: EdgeInsets.all(6.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -382,7 +389,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                               child: Text(
                                 'Address :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -395,7 +402,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                 //////username variable
                                 '${data!['address']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -405,6 +412,9 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       ///dob
                       Container(
@@ -412,8 +422,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                         width: double.infinity,
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -427,9 +436,9 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                             Expanded(
                               flex: 1,
                               child: Text(
-                                'Date of Birth :',
+                                'DOB:',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -442,7 +451,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                                 //////username variable
                                 '${data!['dob']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -454,7 +463,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                       ),
 
                       SizedBox(
-                        height: 250.0,
+                        height: 200.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -518,7 +527,7 @@ class _lec_userdetailsState extends State<lec_userdetails> {
                               children: [
                                 Icon(Icons.inventory),
                                 Text(
-                                  'Gem Inventory',
+                                  'user details',
                                   style: TextStyle(
                                     fontSize: 12.0,
                                   ),

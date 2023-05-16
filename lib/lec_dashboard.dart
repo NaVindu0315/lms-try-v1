@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:the_lms_try/add_report.dart';
+import 'package:the_lms_try/groupchat.dart';
 import 'package:the_lms_try/lec_st_select.dart';
 import 'package:the_lms_try/lec_userdetails.dart';
 import 'package:the_lms_try/quizpage.dart';
 import 'package:the_lms_try/slides.dart';
 import 'package:the_lms_try/st_list_view.dart';
 import 'package:the_lms_try/std_dashboard.dart';
+import 'package:the_lms_try/std_login.dart';
 import 'package:the_lms_try/student_enroll.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -72,11 +74,11 @@ class _lec_dashboardState extends State<lec_dashboard> {
         title: Text(
           'Lecturer Dashboard',
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Color(0xFFDBD6E5),
+        backgroundColor: Color(0xFF19589D),
       ),
       body: StreamBuilder<DocumentSnapshot>(
           stream: FirebaseFirestore.instance
@@ -89,50 +91,52 @@ class _lec_dashboardState extends State<lec_dashboard> {
               var data = snapshot.data;
               return Column(
                 children: <Widget>[
-                  Container(
-                    height: 100, // Set the desired height
-                    decoration: BoxDecoration(
-                      color: Color(0xFFA888EB),
-                      borderRadius:
-                          BorderRadius.circular(50), // Set the desired color
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Expanded(
-                          child: Text(
-                            'Welcome, ${data!['username']}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                  SingleChildScrollView(
+                    child: Container(
+                      height: 100, // Set the desired height
+                      decoration: BoxDecoration(
+                        color: Color(0xFF19589D),
+                        borderRadius:
+                            BorderRadius.circular(50), // Set the desired color
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Welcome, ${data!['username']}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 170.0,
-                        ),
-                        Expanded(
-                          child: CircleAvatar(
-                            backgroundColor: Colors.purple,
-                            minRadius: 70.5,
+                          SizedBox(
+                            width: 170.0,
+                          ),
+                          Expanded(
                             child: CircleAvatar(
-                                radius: 70,
-                                backgroundImage:
-                                    //AssetImage('images/g.png'),
-                                    NetworkImage('${data!['url']}')),
-                          ),
-                          /*
-                          CircleAvatar(
-                            radius: 50.0,
-                            child: Image(
-                              image: NetworkImage('${data!['url']}'),
+                              backgroundColor: Colors.purple,
+                              minRadius: 70.5,
+                              child: CircleAvatar(
+                                  radius: 70,
+                                  backgroundImage:
+                                      //AssetImage('images/g.png'),
+                                      NetworkImage('${data!['url']}')),
                             ),
-                          ),*/
-                        ),
-                      ],
+                            /*
+                            CircleAvatar(
+                              radius: 50.0,
+                              child: Image(
+                                image: NetworkImage('${data!['url']}'),
+                              ),
+                            ),*/
+                          ),
+                        ],
+                      ),
                     ),
                   ),
 
@@ -147,7 +151,7 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                 child: Container(
                                   margin: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
-                                    color: Colors.blueGrey,
+                                    color: Color(0xFF19589D),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: ElevatedButton(
@@ -155,7 +159,7 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => quiz()),
+                                            builder: (context) => TimeTable()),
                                       );
                                     },
                                     child: Column(
@@ -163,13 +167,13 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Icon(
-                                          Icons.quiz,
+                                          Icons.schedule_rounded,
                                           size: 50,
                                           color: Colors.white,
                                         ),
                                         SizedBox(height: 10),
                                         Text(
-                                          'Quiz',
+                                          'Update TimeTable',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 18,
@@ -481,7 +485,7 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => TimeTable()),
+                                            builder: (context) => groupchat()),
                                       );
                                     },
                                     child: Column(
@@ -489,13 +493,13 @@ class _lec_dashboardState extends State<lec_dashboard> {
                                           MainAxisAlignment.center,
                                       children: <Widget>[
                                         Icon(
-                                          Icons.schedule_rounded,
+                                          Icons.chat,
                                           size: 50,
                                           color: Colors.white,
                                         ),
                                         SizedBox(height: 10),
                                         Text(
-                                          'Time Table update',
+                                          'Contact',
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 18,

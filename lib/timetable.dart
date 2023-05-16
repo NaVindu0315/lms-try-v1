@@ -52,11 +52,11 @@ class _TimeTableState extends State<TimeTable> {
             title: Text(
               'Update Time Table',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            backgroundColor: Color(0xFFDBD6E5),
+            backgroundColor: Color(0xFF19589D),
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -69,7 +69,20 @@ class _TimeTableState extends State<TimeTable> {
                     children: [
                       Expanded(
                         flex: 3,
-                        child: TextField(
+                        child: /* TextFormField(
+                          controller: dateTEC,
+                          onChanged: (value) {
+                            date = value;
+                          },
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.date_range,
+                            ),
+                            labelText: 'Date',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),*/
+                            TextField(
                           controller: dateTEC,
                           decoration: const InputDecoration(
                             hintText: 'Date',

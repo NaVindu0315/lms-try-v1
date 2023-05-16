@@ -148,7 +148,7 @@ class _st_userdetailsState extends State<st_userdetails> {
       title: 'My Flutter App',
       debugShowCheckedModeBanner: false, // Remove debug banner
       home: Scaffold(
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor: Colors.blue.shade100,
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new_outlined),
@@ -157,18 +157,17 @@ class _st_userdetailsState extends State<st_userdetails> {
             },
           ),
           toolbarHeight: 70,
-          centerTitle: true,
-          backgroundColor: Color(0xFFA888EB),
+
+          backgroundColor: Color(0xFF19589D),
           // The title text which will be shown on the action bar
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   client,
                   style: TextStyle(
-                      fontSize: 31,
+                      fontSize: 22,
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
@@ -204,10 +203,107 @@ class _st_userdetailsState extends State<st_userdetails> {
                     Container(
                   child: Column(
                     children: <Widget>[
+                      ///
+                      /* Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: Expanded(
+                          child: Container(
+                            width: 450,
+                            height: 250,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                //SizedBox(height: 30.0,),
+                                Row(
+                                  children: <Widget>[
+                                    SizedBox(width: 10),
+                                    Expanded(
+                                        child: Image.asset('images/nsbm.jpg')),
+                                    SizedBox(
+                                      width: 150.0,
+                                    ),
+                                    Expanded(child: Text('Student')),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 30.0,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 20,
+                                      width: 200,
+                                      color: Color(0xFF19589D),
+                                      child: Text(
+                                        '  Find greatness in every step',
+                                        style: TextStyle(
+                                            fontSize: 13, color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 20,
+                                      width: 360,
+                                      color: Color(0xFF56A4FA),
+                                      child: Text(
+                                        '  Faculty of computing | batch: 21.1',
+                                        style: TextStyle(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+
+                                ///chatgpt
+
+                                ///chatgpt end
+                                Row(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text('  W.H Wedagedara\n'
+                                            '\n'
+                                            '  whwedagedara@nsbm.ac.lk\n'
+                                            '\n'
+                                            '  200007503926'),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundColor: Colors.purple,
+                                          minRadius: 50,
+                                          child: CircleAvatar(
+                                              radius: 50,
+                                              backgroundImage:
+                                                  //AssetImage('images/g.png'),
+                                                  NetworkImage(
+                                                      '${data!['url']}')),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),*/
+                      SizedBox(
+                        height: 10.0,
+                      ),
+
+                      ///
                       Container(
                         height: 150,
                         child: CircleAvatar(
-                          backgroundColor: Colors.purple,
+                          backgroundColor: Color(0xFF19589D),
                           minRadius: 70.5,
                           child: CircleAvatar(
                               radius: 70,
@@ -216,11 +312,14 @@ class _st_userdetailsState extends State<st_userdetails> {
                                   NetworkImage('${data!['url']}')),
                         ),
                       ),
+                      SizedBox(height: 10.0),
+
+                      ///
+
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -238,7 +337,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                               child: Text(
                                 'Username :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -253,7 +352,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                                 //Text('Username: ${data!['username']}'),
                                 '${data!['username']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -263,13 +362,15 @@ class _st_userdetailsState extends State<st_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       /////////
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -287,7 +388,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                               child: Text(
                                 'email :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -300,7 +401,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                                 //////email variable
                                 client,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -310,13 +411,15 @@ class _st_userdetailsState extends State<st_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       ///mobile
                       Container(
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -334,7 +437,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                               child: Text(
                                 'Mobile :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -347,7 +450,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                                 //////mobile variable
                                 '${data!['mobile']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -357,14 +460,16 @@ class _st_userdetailsState extends State<st_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       /////////
                       ///address
                       Container(
                         padding: EdgeInsets.all(6.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -382,7 +487,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                               child: Text(
                                 'Address :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -395,7 +500,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                                 //////username variable
                                 '${data!['address']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -405,6 +510,9 @@ class _st_userdetailsState extends State<st_userdetails> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
 
                       ///dob
                       Container(
@@ -412,8 +520,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                         width: double.infinity,
                         padding: EdgeInsets.all(8.0), // set the padding
                         decoration: BoxDecoration(
-                          color: Colors
-                              .purple.shade300, // set the background color
+                          color: Color(0xFF19589D), // set the background color
                           borderRadius: BorderRadius.circular(
                               10.0), // set the border radius
                         ),
@@ -427,9 +534,9 @@ class _st_userdetailsState extends State<st_userdetails> {
                             Expanded(
                               flex: 1,
                               child: Text(
-                                'Date of Birth :',
+                                'DOB :',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -442,7 +549,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                                 //////username variable
                                 '${data!['dob']}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 22,
                                   height: 2,
@@ -454,7 +561,7 @@ class _st_userdetailsState extends State<st_userdetails> {
                       ),
 
                       SizedBox(
-                        height: 250.0,
+                        height: 200.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

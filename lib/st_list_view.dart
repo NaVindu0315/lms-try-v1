@@ -78,7 +78,7 @@ class gemlistview extends State<student_list_view> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color(0xFFDBD6E5),
+          backgroundColor: Color(0xFF19589D),
         ),
         body: Column(
           children: <Widget>[
@@ -131,7 +131,7 @@ class gemlistview extends State<student_list_view> {
                       final data = doc.data() as Map<String, dynamic>;
 
                       return Card(
-                        color: Color(0xFFA888EB),
+                        color: Color(0xFF19589D),
                         child: ListTile(
                           leading: Image.asset(
                             'images/g.png',
@@ -151,8 +151,9 @@ class gemlistview extends State<student_list_view> {
                               child: Text(
                                 doc.id,
                                 style: TextStyle(
-                                  color: Color(0xFF43468E),
-                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 22.0,
                                 ),
                               ),
                             ),
@@ -186,7 +187,7 @@ class gemlistview extends State<student_list_view> {
                       padding: EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 12.0),
                       textStyle:
-                          TextStyle(fontSize: 20.0, color: Color(0xFF43468E)),
+                          TextStyle(fontSize: 20.0, color: Color(0xFF19589D)),
                     ),
                     child: Text('Back'),
                   ),
@@ -199,7 +200,7 @@ class gemlistview extends State<student_list_view> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF43468E),
+                      backgroundColor: Color(0xFF19589D),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
