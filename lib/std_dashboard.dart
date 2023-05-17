@@ -3,6 +3,7 @@ import 'package:the_lms_try/add_report.dart';
 import 'package:the_lms_try/annoucements.dart';
 import 'package:the_lms_try/quizpage.dart';
 import 'package:the_lms_try/slides.dart';
+import 'package:the_lms_try/st_timetable.dart';
 import 'package:the_lms_try/st_userdetails.dart';
 import 'package:the_lms_try/std_annoucement.dart';
 import 'package:the_lms_try/std_dashboard.dart';
@@ -439,7 +440,7 @@ class _st_dashboardState extends State<st_dashboard> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                add_questions()),
+                                                st_timetable()),
                                       );
                                     },
                                     child: Column(
