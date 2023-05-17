@@ -12,24 +12,81 @@ class TimeTable extends StatefulWidget {
 class _TimeTableState extends State<TimeTable> {
   FirebaseDatabase database = FirebaseDatabase.instance;
 
-  late String date;
-  late String time1;
-  late String time2;
-  late String time3;
-  late String time4;
-  late String module1;
-  late String module2;
-  late String module3;
-  late String module4;
-  var dateTEC = TextEditingController();
-  var time1TEC = TextEditingController();
-  var time2TEC = TextEditingController();
-  var time3TEC = TextEditingController();
-  var time4TEC = TextEditingController();
-  var module1TEC = TextEditingController();
-  var module2TEC = TextEditingController();
-  var module3TEC = TextEditingController();
-  var module4TEC = TextEditingController();
+  late String timetabledate;
+  late String timetabletime1;
+  late String timetabletime2;
+  late String timetabletime3;
+  late String timetabletime4;
+  late String timetablemodule1;
+  late String timetablemodule2;
+  late String timetablemodule3;
+  late String timetablemoodule4;
+  TextEditingController dateTEC = TextEditingController();
+  TextEditingController time1TEC = TextEditingController();
+  TextEditingController time2TEC = TextEditingController();
+  TextEditingController time3TEC = TextEditingController();
+  TextEditingController time4TEC = TextEditingController();
+  TextEditingController module1TEC = TextEditingController();
+  TextEditingController module2TEC = TextEditingController();
+  TextEditingController module3TEC = TextEditingController();
+  TextEditingController module4TEC = TextEditingController();
+
+  late DatabaseReference timetabledateref = FirebaseDatabase.instance.ref();
+  late DatabaseReference tabletime1 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tabletime2 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tabletime3 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tabletime4 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tablemod1 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tablemod2 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tablemod3 = FirebaseDatabase.instance.ref();
+  late DatabaseReference tablemod4 = FirebaseDatabase.instance.ref();
+
+  @override
+  void initState() {
+    super.initState();
+    timetabledateref = FirebaseDatabase.instance.ref().child('timetabledata');
+    tabletime1 = FirebaseDatabase.instance.ref().child('tabletime1');
+    tabletime2 = FirebaseDatabase.instance.ref().child('tabletime2');
+    tabletime3 = FirebaseDatabase.instance.ref().child('tabletime3');
+    tabletime4 = FirebaseDatabase.instance.ref().child('tabletime4');
+    tablemod1 = FirebaseDatabase.instance.ref().child('tablemodule1');
+    tablemod2 = FirebaseDatabase.instance.ref().child('tablemodule2');
+    tablemod3 = FirebaseDatabase.instance.ref().child('tablemodule3');
+    tablemod4 = FirebaseDatabase.instance.ref().child('tablemodule4');
+  }
+
+  Future<void> timetabledataset(String dte) async {
+    await timetabledateref.set(dte);
+  }
+
+  ///first
+  Future<void> firsttimeslot(String tm, String md) async {
+    await tabletime1.set(tm);
+    await tablemod1.set(md);
+  }
+
+  ///first end
+  ///second
+  Future<void> secondtimeslot(String tm, String md) async {
+    await tabletime2.set(tm);
+    await tablemod2.set(md);
+  }
+
+  ///second end
+  ///third
+  Future<void> thirdtimeslot(String tm, String md) async {
+    await tabletime3.set(tm);
+    await tablemod3.set(md);
+  }
+
+  ///third end
+  ///fourth
+  Future<void> fourthtimeslot(String tm, String md) async {
+    await tabletime4.set(tm);
+    await tablemod4.set(md);
+  }
+
+  ///fourth end
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +145,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Date',
                           ),
                           onChanged: (value) {
-                            date = value;
+                            timetabledate = value;
                           },
                         ),
                       ),
@@ -97,13 +154,10 @@ class _TimeTableState extends State<TimeTable> {
                       ),
                       Expanded(
                         child: ElevatedButton(
-                          child: const Text('Send'),
-                          onPressed: () async {
-                            DatabaseReference ref = FirebaseDatabase.instance
-                                .ref('timetable/$date');
-                            await ref.update({
-                              'date': date,
-                            });
+                          child: Text('Send'),
+                          onPressed: () {
+                            timetabledataset(timetabledate);
+                            dateTEC.clear();
                           },
                         ),
                       ),
@@ -121,7 +175,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Time',
                           ),
                           onChanged: (value) {
-                            time1 = value;
+                            timetabletime1 = value;
                           },
                         ),
                       ),
@@ -136,7 +190,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Module Name',
                           ),
                           onChanged: (value) {
-                            module1 = value;
+                            timetablemodule1 = value;
                           },
                         ),
                       ),
@@ -147,13 +201,10 @@ class _TimeTableState extends State<TimeTable> {
                         flex: 2,
                         child: ElevatedButton(
                           child: const Text('Send'),
-                          onPressed: () async {
-                            DatabaseReference ref = FirebaseDatabase.instance
-                                .ref('timetable/$date');
-                            await ref.update({
-                              'time1': time1,
-                              'module1': module1,
-                            });
+                          onPressed: () {
+                            firsttimeslot(timetabletime1, timetablemodule1);
+                            module1TEC.clear();
+                            time1TEC.clear();
                           },
                         ),
                       ),
@@ -171,7 +222,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Time',
                           ),
                           onChanged: (value) {
-                            time2 = value;
+                            timetabletime2 = value;
                           },
                         ),
                       ),
@@ -186,7 +237,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Module Name',
                           ),
                           onChanged: (value) {
-                            module2 = value;
+                            timetablemodule2 = value;
                           },
                         ),
                       ),
@@ -197,13 +248,10 @@ class _TimeTableState extends State<TimeTable> {
                         flex: 2,
                         child: ElevatedButton(
                           child: const Text('Send'),
-                          onPressed: () async {
-                            DatabaseReference ref = FirebaseDatabase.instance
-                                .ref('timetable/$date');
-                            await ref.update({
-                              'time2': time2,
-                              'module2': module2,
-                            });
+                          onPressed: () {
+                            secondtimeslot(timetabletime2, timetablemodule2);
+                            module2TEC.clear();
+                            time2TEC.clear();
                           },
                         ),
                       ),
@@ -221,7 +269,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Time',
                           ),
                           onChanged: (value) {
-                            time3 = value;
+                            timetabletime3 = value;
                           },
                         ),
                       ),
@@ -236,7 +284,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Module Name',
                           ),
                           onChanged: (value) {
-                            module3 = value;
+                            timetablemodule3 = value;
                           },
                         ),
                       ),
@@ -247,13 +295,10 @@ class _TimeTableState extends State<TimeTable> {
                         flex: 2,
                         child: ElevatedButton(
                           child: const Text('Send'),
-                          onPressed: () async {
-                            DatabaseReference ref = FirebaseDatabase.instance
-                                .ref('timetable/$date');
-                            await ref.update({
-                              'time3': time3,
-                              'module3': module3,
-                            });
+                          onPressed: () {
+                            thirdtimeslot(timetabletime3, timetablemodule3);
+                            module3TEC.clear();
+                            time3TEC.clear();
                           },
                         ),
                       ),
@@ -271,7 +316,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Time',
                           ),
                           onChanged: (value) {
-                            time4 = value;
+                            timetabletime4 = value;
                           },
                         ),
                       ),
@@ -286,7 +331,7 @@ class _TimeTableState extends State<TimeTable> {
                             hintText: 'Module Name',
                           ),
                           onChanged: (value) {
-                            module4 = value;
+                            timetablemoodule4 = value;
                           },
                         ),
                       ),
@@ -297,13 +342,10 @@ class _TimeTableState extends State<TimeTable> {
                         flex: 2,
                         child: ElevatedButton(
                           child: const Text('Send'),
-                          onPressed: () async {
-                            DatabaseReference ref = FirebaseDatabase.instance
-                                .ref('timetable/$date');
-                            await ref.update({
-                              'time4': time4,
-                              'module4': module4,
-                            });
+                          onPressed: () {
+                            fourthtimeslot(timetabletime4, timetablemoodule4);
+                            module4TEC.clear();
+                            time4TEC.clear();
                           },
                         ),
                       ),
